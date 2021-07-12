@@ -23,8 +23,14 @@ vect = CountVectorizer(vocabulary=vocab)
 def web_Scrapping_aajtak(urls):
     st.markdown("<h1 style='text-align: center; color: silver;'>Article Analysis</h1>",
                 unsafe_allow_html=True)
+    summary = []
+    session = requests.Session()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)'
+    }
     for url in urls:
         if operator.contains(url, "https://www.aajtak.in/"):
+            response = session.get(url, headers=headers)
             page = requests.get(url)
             page.text
             soup = BeautifulSoup(page.text, 'html.parser')

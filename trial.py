@@ -24,6 +24,6 @@ def display_data(des):
     # st.dataframe(df.style.apply(color,subset='Pos'))
     # df.index=[""]*len(df)
     st.table(df)
-
+   
     #fig = go.Figure(data=go.Bar(y=[2, 3, 1]))
     # fig.show()
